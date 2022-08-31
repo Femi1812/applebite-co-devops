@@ -9,11 +9,9 @@
 pipeline{
     agent any
     environment{
-        // dockerHome = tool 'myDocker'
-        def dockerHome = tool 'MyDocker'
-        def mavenHome  = tool 'MyMaven'
-        env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
-//   PATH = "${dockerHome}/bin:${PATH}"
+        dockerHome = tool 'myDocker'
+        
+  PATH = "${dockerHome}/bin:${PATH}"
 
 
     }
@@ -21,7 +19,7 @@ pipeline{
         stage("A"){
             steps{
                 echo "========executing A========"
-                  sh '${env.PATH}'
+                //   sh 'docker version'
 
             }
             post{
