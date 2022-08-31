@@ -1,5 +1,5 @@
 node {
-  git url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
+//   git url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
 //    def mvnHome = tool 'M3'
    def dockerHome = tool 'myDocker'
 //   env.PATH = "${mvnHome}/bin:${env.PATH}"
