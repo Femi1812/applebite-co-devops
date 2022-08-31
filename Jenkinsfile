@@ -20,7 +20,7 @@ pipeline{
             steps{
                 echo "========executing A========"
                 //   sh 'docker version'
-                bat "working"
+               sh "${dockerHome}"
 
             }
             post{
