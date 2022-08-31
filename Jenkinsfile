@@ -8,9 +8,7 @@
 
 pipeline{
     agent any
-   
-    stages{
-        stage("A"){ environment{
+    environment{
         // dockerHome = tool 'myDocker'
         def dockerHome = tool 'MyDocker'
         def mavenHome  = tool 'MyMaven'
@@ -19,14 +17,16 @@ pipeline{
 
 
     }
+    stages{
+        stage("A"){
             steps{
                 echo "========executing A========"
+                  sh '${env.PATH}'
 
             }
             post{
                 always{
                     echo "========always========"
-                  sh 'docker version'
                 }
                 success{
                     echo "========A executed successfully========"
