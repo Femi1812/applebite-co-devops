@@ -1,26 +1,23 @@
 /* node {
-  git url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
-  def mvnHome = tool 'M3'
-  env.PATH = "${mvnHome}/bin:${env.PATH}"
-  sh 'mvn -B verify'
-}
- */
+//   git url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
+//    def mvnHome = tool 'M3'
+   def dockerHome = tool 'myDocker'
+//   env.PATH = "${mvnHome}/bin:${env.PATH}"
+  sh 'docker --version'
+} */
+
 pipeline{
-    agent {docker{image 'maven:3.6.3'}}
-   /*  environment{
+    agent any
+    environment{
         dockerHome = tool 'myDocker'
-        
-  PATH = "${dockerHome}/bin:${PATH}"
+  PATH = "$dockerHome/bin:$PATH"
 
-
-    } */
+    }
     stages{
         stage("A"){
             steps{
                 echo "========executing A========"
-                //   sh 'docker version'
-//                sh "${dockerHome}"
-               sh 'mvm --version'
+                  sh 'docker version'
 
             }
             post{
