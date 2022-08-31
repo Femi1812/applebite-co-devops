@@ -1,7 +1,8 @@
 node {
-  def mvnHome = tool 'myDocker'
+  git url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
+  def mvnHome = tool 'M3'
   env.PATH = "${mvnHome}/bin:${env.PATH}"
-  sh 'docker version'
+  sh 'mvn -B verify'
 }
 
 // pipeline{
