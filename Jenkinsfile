@@ -18,6 +18,7 @@ pipeline{
             steps{
                 echo "========executing A========"
                   sh 'docker version'
+                  sh
 
             }
             post{
@@ -30,6 +31,40 @@ pipeline{
                 failure{
                     echo "========A execution failed========"
                 }
+            }
+        }
+        stage("Job 2"){
+            steps{
+                echo "====++++executing Job 2++++===="
+            }
+            post{
+                always{
+                    echo "====++++always++++===="
+                }
+                success{
+                    echo "====++++Job 2 executed successfully++++===="
+                }
+                failure{
+                    echo "====++++Job 2 execution failed++++===="
+                }
+        
+            }
+        }
+        stage("Job 3"){
+            steps{
+                echo "====++++executing Job 3++++===="
+            }
+            post{
+                always{
+                    echo "====++++always++++===="
+                }
+                success{
+                    echo "====++++Job 3 executed successfully++++===="
+                }
+                failure{
+                    echo "====++++Job 3 execution failed++++===="
+                }
+        
             }
         }
     }
