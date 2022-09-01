@@ -18,7 +18,6 @@ pipeline{
             steps{
                 echo "========executing A========"
                   sh 'docker version'
-                  sh
 
             }
             post{
