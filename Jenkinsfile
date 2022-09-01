@@ -14,14 +14,14 @@ pipeline{
 
     }
     stages{
-       
-        stage("Job 1"){
-               agent('Slave '){
- steps{
+       agent('Slave 1'){
+ stage("Job 1"){
+                steps{
                 echo "========executing A========"
                   sh 'docker version'
             }
        }
+       
             post{
                 always{
                     echo "====++++always++++===="
