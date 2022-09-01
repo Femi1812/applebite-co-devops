@@ -14,22 +14,25 @@ pipeline{
 
     }
     stages{
-        stage("A"){
-            steps{
+       
+        stage("Job 1"){
+               agent('Slave '){
+ steps{
                 echo "========executing A========"
                   sh 'docker version'
-
             }
+       }
             post{
                 always{
-                    echo "========always========"
+                    echo "====++++always++++===="
                 }
                 success{
-                    echo "========A executed successfully========"
+                    echo "====++++Job 1 executed successfully++++===="
                 }
                 failure{
-                    echo "========A execution failed========"
+                    echo "====++++Job 1 execution failed++++===="
                 }
+        
             }
         }
         stage("Job 2"){
