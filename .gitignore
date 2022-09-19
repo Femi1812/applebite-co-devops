@@ -1,3 +1,4 @@
-/kubernetes/*
-/terraform/*
-/website/Dockerfile
+# /kubernetes/*
+/terraform/.terraform/*
+/terraform/.terraform.lock.hcl
+# /website/Dockerfile
